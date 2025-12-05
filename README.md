@@ -98,5 +98,4 @@ This establishes **bandgap engineering** as a key method for improving Si nanowi
 
 ---
 
-## 📂 Recommended Repository Structure
 
