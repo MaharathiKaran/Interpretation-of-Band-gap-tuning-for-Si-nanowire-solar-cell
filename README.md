@@ -6,72 +6,97 @@
 ---
 
 ## 📌 Project Overview
-Silicon nanowire (SiNW) solar cells offer strong optical absorption, light trapping, and high carrier collection efficiency. However, their large surface-to-volume ratio introduces surface recombination losses.  
-This project investigates **bandgap tuning of the SiNW emitter layer** and its effect on the electrical performance of heterojunction SiNW solar cells using **SCAPS-1D simulations**.
+Silicon nanowire (SiNW) solar cells exhibit enhanced optical absorption and improved charge collection due to their geometry. However, their large surface-to-volume ratio introduces recombination issues.
 
-The bandgap is varied from **1.1 eV to 1.9 eV**, and its impact on:
+This project investigates **bandgap tuning of the SiNW emitter layer (1.1–1.9 eV)** and analyzes its effect on performance parameters such as:
 - Open-circuit voltage (Voc)  
-- Short-circuit current (Jsc)  
+- Short-circuit current density (Jsc)  
 - Fill Factor (FF)  
 - Efficiency (η)  
 - EQE spectrum  
-is analyzed.
+
+Simulations were performed using **SCAPS-1D v3.3.11**.
 
 ---
 
-## 📚 Abstract
-This study examines how tuning the bandgap of the n-type SiNW emitter improves the photovoltaic performance of heterojunction solar cells. Using experimentally reported recombination parameters, SCAPS-1D simulations reveal that increasing the bandgap significantly enhances **Voc** and **FF**, while **Jsc remains nearly constant** due to efficient optical absorption in the nanowire structure.  
-An optimum bandgap of **~1.5 eV** is identified, yielding the best device performance with minimum recombination losses.
+## 📘 Device Structure
+
+The SiNW solar cell model consists of:
+
+- **n-layer (SiNW emitter)** – bandgap varied  
+- **p-layer (Si absorber)**  
+- **p+ BSF layer**  
+
+### Structure Diagram  
+![Device Structure](layer.png)
 
 ---
 
 ## 🧪 Simulation Setup  
-Simulation performed using **SCAPS-1D v3.3.11**.  
-The device includes:  
-- **n-layer (SiNW)** – Bandgap varied from 1.1–1.9 eV  
-- **p-layer (Si)**  
-- **p+ Back Surface Field (BSF)**  
+SCAPS-1D solves Poisson and continuity equations to extract I–V, EQE, Voc, Jsc, FF, and η.
 
-A full parameter table is available in the project report (see `/docs/report.pdf`).  
-SCAPS solves Poisson and continuity equations to extract **I–V**, **Jsc**, **Voc**, **FF**, **η**, and **EQE**.
+Material parameters include:
+- Doping concentrations  
+- Bandgaps  
+- Mobilities  
+- Radiative and Auger recombination coefficients  
 
-### 📘 Structure Diagram  
-*(Refer to Fig. 2 in the report)*
+A detailed parameter table is included in the project report.
 
 ---
 
 ## 📊 Results & Discussion  
 
-### **1️⃣ Voc & Jsc vs Bandgap**  
-- Voc increases sharply with bandgap and saturates near **1.5 eV**.  
-- Jsc remains nearly constant (~26.6 mA/cm²).  
-- Wider bandgaps (>1.5 eV) do not provide additional benefit due to increased recombination.
+### **1️⃣ Voc and Jsc vs Bandgap**  
+This graph shows:
+- **Voc increases significantly** as the bandgap increases and saturates around **1.5 eV**  
+- **Jsc remains nearly constant** (~26.6 mA/cm²) because of strong optical absorption in nanowires  
 
-### **2️⃣ FF & Efficiency vs Bandgap**  
-- Both FF and η increase rapidly with bandgap up to **1.5 eV**.  
-- Maximum performance:  
-  - **Voc = 0.93 V**  
-  - **FF = 87.6%**  
-  - **η = 21.7%**
+![Voc and Jsc vs Bandgap](vocjsc.png)
 
-### **3️⃣ J–V Characteristics**  
-Comparison between bandgaps:  
-- **1.1 eV:** Voc = 0.68 V, η = 15.2%  
-- **1.5 eV:** Voc = 0.93 V, η = 21.7%  
+---
 
-### **4️⃣ EQE Spectrum (for Eg = 1.5 eV)**  
-- Low response below 450 nm (surface recombination).  
-- EQE > 80% in 600–900 nm indicating strong carrier collection.
+### **2️⃣ Fill Factor and Efficiency vs Bandgap**  
+This graph shows:
+- FF improves sharply up to **1.5 eV**, after which it saturates  
+- Maximum FF = **87.6%**  
+- Maximum efficiency = **21.7%**  
+
+![Fill Factor and Efficiency](FF.png)
+
+---
+
+### **3️⃣ J–V Characteristics for Different Bandgaps**  
+Comparison shows:
+- **Eg = 1.1 eV:** Voc = 0.68 V, FF = 85%, η = 15.2%  
+- **Eg = 1.5 eV:** Voc = 0.93 V, FF = 87.6%, η = 21.7%  
+
+The right shift of the J–V curve with higher bandgap confirms improved junction quality.
+
+![J–V Characteristics](jv.png)
+
+---
+
+### **4️⃣ EQE Spectrum for Eg = 1.5 eV**  
+Key observations:
+- Low EQE in UV region (<450 nm) due to surface recombination  
+- High EQE (>80%) between 600–900 nm  
+- Indicates strong photocarrier generation and collection  
+
+![EQE Spectrum](eqe.png)
 
 ---
 
 ## 🧾 Conclusion  
-Bandgap engineering significantly strengthens the electronic quality of SiNW solar cells.  
-The optimal emitter bandgap is **1.5 eV**, producing higher Voc, FF, and overall efficiency while maintaining stable Jsc.  
+Bandgap tuning of SiNW emitters significantly enhances photovoltaic performance.  
+The optimal configuration is found at **Eg ≈ 1.5 eV**, where:
+- Voc is maximized  
+- FF improves  
+- Efficiency reaches **21.7%**  
 
-This demonstrates that **SiNW bandgap tuning is a powerful method to overcome recombination limitations and enhance next-generation photovoltaic devices**.
+This establishes **bandgap engineering** as a key method for improving Si nanowire solar cell performance.
 
 ---
 
-## 📂 Repository Structure (Recommended)
+## 📂 Recommended Repository Structure
 
